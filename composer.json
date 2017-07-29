@@ -1,0 +1,45 @@
+{
+    "prefer-stable": true,
+    "name": "fpoirotte/cryptal-sodium",
+    "type": "cryptal-plugin",
+    "description": "An implementation of the Cryptography Abstraction Layer based on libsodium",
+    "keywords": ["cryptal", "crypto", "cryptography", "libsodium", "sodium"],
+    "homepage": "https://github.com/fpoirotte/cryptal-sodium",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "François Poirotte",
+            "email": "clicky@erebot.net",
+            "role": "lead"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/fpoirotte/cryptal-sodium/issues",
+        "irc": "irc://irc.iiens.net/Clicky",
+        "source": "https://github.com/fpoirotte/cryptal-sodium"
+    },
+    "require": {
+        "php": ">=5.3.0 <7.2.0",
+        "ext-sodium": "*",
+        "fpoirotte/cryptal": "dev-master"
+    },
+    "provide": {
+        "fpoirotte/cryptal-implementation": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer": "*",
+        "erebot/buildenv": "^1.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "fpoirotte\\Cryptal\\Plugins\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0.x-dev"
+        },
+        "cryptal.entrypoint": "fpoirotte\\Cryptal\\Plugins\\Sodium"
+    }
+}

@@ -1,0 +1,35 @@
+language: php
+dist: trusty
+sudo: false
+
+cache:
+    directories:
+    - vendor
+    - $HOME/.composer/cache
+
+php:
+    - 7.0
+    - 7.1
+    - nightly
+
+matrix:
+    fast_finish: true
+
+notifications:
+    email: false
+    irc: "irc.iiens.net#Clicky"
+
+before_script:
+    - pecl install libsodium
+    - rm -rf vendor/
+    - rm composer.lock
+    - composer self-update -n
+    - composer install -n
+
+script:
+    - vendor/bin/phpunit --coverage-clover clover.xml
+    - vendor/bin/phpcs
+
+after_success:
+    - composer require --dev satooshi/php-coveralls
+    - travis_retry vendor/bin/coveralls -n -v
