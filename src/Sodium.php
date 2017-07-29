@@ -86,7 +86,6 @@ class Sodium implements CryptoInterface, PluginInterface
     public function decrypt($iv, $data, $tag = null, $aad = '')
     {
         $blockSize  = $this->getBlockSize();
-        $options    = OPENSSL_RAW_DATA | OPENSSL_ZERO_PADDING;
         $data      .= $tag;
 
         if ($this->cipher == CipherEnum::CIPHER_CHACHA20()) {
