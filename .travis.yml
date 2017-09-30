@@ -1,6 +1,6 @@
 language: php
 dist: trusty
-sudo: false
+sudo: required
 
 cache:
     directories:
@@ -25,6 +25,9 @@ notifications:
     irc: "irc.iiens.net#Clicky"
 
 before_script:
+    - sudo add-apt-repository ppa:cjwatson/launchpad -y
+    - sudo apt-get update -q
+    - sudo apt-get install libsodium-dev -y
     - pecl install libsodium
     - rm -rf vendor/
     - rm composer.lock
