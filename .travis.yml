@@ -11,6 +11,7 @@ php:
     - 7.0
     - 7.1
     - nightly
+    - hhvm-nightly
 
 matrix:
     fast_finish: true
@@ -20,10 +21,10 @@ notifications:
     irc: "irc.iiens.net#Clicky"
 
 before_script:
-    - sudo add-apt-repository ppa:ondrej/php -y
-    - sudo apt-get update -q
-    - sudo apt-get install libsodium-dev -y
-    - pecl install libsodium
+    - if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then sudo add-apt-repository ppa:ondrej/php -y; fi
+    - if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then sudo apt-get update -q; fi
+    - if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then sudo apt-get install libsodium-dev -y; fi
+    - if [ "$TRAVIS_PHP_VERSION" != "hhvm-nightly" ]; then pecl install libsodium; fi
     - rm -rf vendor/
     - rm composer.lock
     - composer self-update -n
