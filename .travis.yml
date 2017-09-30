@@ -15,11 +15,6 @@ php:
 matrix:
     fast_finish: true
 
-addons:
-    apt:
-        packages:
-        - libsodium-dev
-
 notifications:
     email: false
     irc: "irc.iiens.net#Clicky"
