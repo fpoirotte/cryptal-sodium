@@ -20,7 +20,7 @@
     },
     "require": {
         "php": ">=7.0.0",
-        "ext-sodium": "*",
+        "ext-sodium": ">=2.0.0",
         "fpoirotte/cryptal": "dev-master"
     },
     "provide": {
