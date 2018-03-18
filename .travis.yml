@@ -17,7 +17,11 @@ matrix:
 
 notifications:
     email: false
-    irc: "irc.iiens.net#Clicky"
+    irc:
+      channels:
+        - "irc.iiens.net#Clicky"
+      on_success: change
+      on_failure: always
 
 before_script:
     - sudo add-apt-repository ppa:ondrej/php -y
