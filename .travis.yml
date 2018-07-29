@@ -1,4 +1,5 @@
 language: php
+dist: xenial
 sudo: required
 group: travis_latest
 
