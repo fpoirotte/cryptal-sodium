@@ -1,6 +1,11 @@
 language: php
-dist: trusty
 sudo: required
+group: travis_latest
+
+addons:
+  apt:
+    packages:
+      - libsodium-dev
 
 cache:
     directories:
@@ -10,6 +15,7 @@ cache:
 php:
     - 7.0
     - 7.1
+    - 7.2
     - nightly
 
 matrix:
@@ -24,9 +30,6 @@ notifications:
       on_failure: always
 
 before_script:
-    - sudo add-apt-repository ppa:ondrej/php -y
-    - sudo apt-get update -q
-    - sudo apt-get install libsodium-dev -y
     - pecl install libsodium
     - rm -rf vendor/
     - rm composer.lock
